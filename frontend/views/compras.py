@@ -2,8 +2,10 @@ from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QPushButton,
                             QLabel, QLineEdit, QTableWidget, QTableWidgetItem,
                             QSpinBox, QDoubleSpinBox, QFormLayout,
                             QMessageBox, QGroupBox, QComboBox, QTabWidget)
+from PyQt6.QtCore import Qt
 from backend.api.coffee_price import CoffeePriceAPI
 from backend.database import DatabaseConnection
+from backend.reportes import ReporteFacturas
 
 class ComprasView(QWidget):
     def __init__(self, user_id=1):
@@ -11,6 +13,7 @@ class ComprasView(QWidget):
         self.user_id = user_id
         self.coffee_api = CoffeePriceAPI()
         self.campesinos = []  # Lista para almacenar todos los campesinos
+        self.reporte_manager = ReporteFacturas()
         self.init_ui()
         
     def init_ui(self):
@@ -245,7 +248,13 @@ class ComprasView(QWidget):
                     
                     conn.commit()
                     
-                    self.mostrar_mensaje("Éxito", "Compra registrada correctamente")
+                    # Generar factura
+                    factura_path = self.reporte_manager.generar_factura_compra(compra_id)
+                    if factura_path:
+                        self.mostrar_mensaje("Éxito", f"Compra registrada y factura generada correctamente en:\n{factura_path}")
+                    else:
+                        self.mostrar_mensaje("Advertencia", "Compra registrada pero no se pudo generar la factura")
+                    
                     self.limpiar_formulario()
                     self.cargar_compras()
                     

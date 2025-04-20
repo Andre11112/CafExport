@@ -4,7 +4,8 @@ from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QPushButton,
                             QMessageBox, QGroupBox, QComboBox, QTabWidget)
 from backend.api.coffee_price import CoffeePriceAPI
 from backend.database import DatabaseConnection
-from PyQt6.QtCore import QTimer
+from PyQt6.QtCore import QTimer, Qt
+from backend.reportes import ReporteFacturas
 
 class VentasView(QWidget):
     def __init__(self, user_id=1):
@@ -12,6 +13,7 @@ class VentasView(QWidget):
         self.user_id = user_id
         self.coffee_api = CoffeePriceAPI()
         self.clientes = []
+        self.reporte_manager = ReporteFacturas()
         self.init_ui()
         
         # Actualizar precio cada 5 minutos
@@ -215,12 +217,18 @@ class VentasView(QWidget):
                     
                     conn.commit()
                     
-                    self.mostrar_mensaje("Éxito", "Venta registrada correctamente")
+                    # Generar factura
+                    factura_path = self.reporte_manager.generar_factura_venta(venta_id)
+                    if factura_path:
+                        self.mostrar_mensaje("Éxito", f"Venta registrada y factura generada correctamente en:\n{factura_path}")
+                    else:
+                        self.mostrar_mensaje("Advertencia", "Venta registrada pero no se pudo generar la factura")
+                    
                     self.limpiar_formulario()
                     self.cargar_ventas()
                     
         except Exception as e:
-            self.mostrar_mensaje("Error", f"Error al registrar venta: {str(e)}")
+            self.mostrar_mensaje("Error", f"Error al registrar la venta: {str(e)}")
             
     def guardar_cliente(self):
         try:

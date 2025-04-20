@@ -151,5 +151,3 @@ INSERT INTO usuarios (
     CURRENT_TIMESTAMP
 );
 
--- Establecer la secuencia para que futuros registros empiecen después del ID 1
-SELECT setval('usuarios_id_seq', 1);

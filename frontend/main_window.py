@@ -5,6 +5,7 @@ from PyQt6.QtCore import Qt
 from frontend.views.proveedores import ProveedoresView
 from frontend.views.ventas import VentasView
 from frontend.views.compras import ComprasView
+from frontend.views.reportes import ReportesView
 
 class MainWindow(QMainWindow):
     def __init__(self, user_id):
@@ -56,17 +57,15 @@ class MainWindow(QMainWindow):
         layout.addWidget(logout_button)
         
     def create_views(self):
-        # Vista de Compras
+        # Crear las vistas
         self.compras_view = ComprasView(self.user_id)
-        self.stack_widget.addWidget(self.compras_view)
-        
-        # Vista de Proveedores
-        self.proveedores_view = ProveedoresView(self.user_id)
-        self.stack_widget.addWidget(self.proveedores_view)
-        
-        # Vista de Ventas
         self.ventas_view = VentasView(self.user_id)
+        self.reportes_view = ReportesView(self.user_id)
+        
+        # Agregar las vistas al stack
+        self.stack_widget.addWidget(self.compras_view)
         self.stack_widget.addWidget(self.ventas_view)
+        self.stack_widget.addWidget(self.reportes_view)
         
     def show_compras(self):
         self.stack_widget.setCurrentWidget(self.compras_view)
@@ -74,16 +73,8 @@ class MainWindow(QMainWindow):
     def show_ventas(self):
         self.stack_widget.setCurrentWidget(self.ventas_view)
         
-    def show_proveedores(self):
-        self.stack_widget.setCurrentWidget(self.proveedores_view)
-        
-    def show_clientes(self):
-        # Implementar vista de clientes
-        pass
-        
     def show_reportes(self):
-        # Implementar vista de reportes
-        pass
+        self.stack_widget.setCurrentWidget(self.reportes_view)
         
     def handle_logout(self):
         self.close() 
