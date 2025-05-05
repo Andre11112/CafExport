@@ -6,6 +6,8 @@ from frontend.views.proveedores import ProveedoresView
 from frontend.views.ventas import VentasView
 from frontend.views.compras import ComprasView
 from frontend.views.reportes import ReportesView
+from frontend.views.dashboard import Dashboard
+from frontend.views.cierres import CierreContableWidget
 
 class MainWindow(QMainWindow):
     def __init__(self, user_id):
@@ -39,9 +41,11 @@ class MainWindow(QMainWindow):
         
     def create_menu_buttons(self, layout):
         buttons = [
+            ("Panel de Control", self.show_dashboard),
             ("Compras", self.show_compras),
             ("Ventas", self.show_ventas),
             ("Reportes", self.show_reportes),
+            ("Cierre Mensual", self.show_cierres),
         ]
         
         for text, callback in buttons:
@@ -58,14 +62,24 @@ class MainWindow(QMainWindow):
         
     def create_views(self):
         # Crear las vistas
+        self.dashboard_view = Dashboard()
         self.compras_view = ComprasView(self.user_id)
         self.ventas_view = VentasView(self.user_id)
         self.reportes_view = ReportesView(self.user_id)
+        self.cierres_view = CierreContableWidget()
         
         # Agregar las vistas al stack
+        self.stack_widget.addWidget(self.dashboard_view)
         self.stack_widget.addWidget(self.compras_view)
         self.stack_widget.addWidget(self.ventas_view)
         self.stack_widget.addWidget(self.reportes_view)
+        self.stack_widget.addWidget(self.cierres_view)
+        
+        # Mostrar el dashboard por defecto
+        self.show_dashboard()
+        
+    def show_dashboard(self):
+        self.stack_widget.setCurrentWidget(self.dashboard_view)
         
     def show_compras(self):
         self.stack_widget.setCurrentWidget(self.compras_view)
@@ -75,6 +89,9 @@ class MainWindow(QMainWindow):
         
     def show_reportes(self):
         self.stack_widget.setCurrentWidget(self.reportes_view)
+        
+    def show_cierres(self):
+        self.stack_widget.setCurrentWidget(self.cierres_view)
         
     def handle_logout(self):
         self.close() 

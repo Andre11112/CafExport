@@ -23,4 +23,28 @@ QLineEdit {
 
 QLabel {
     color: #2c3e50;
+}
+
+/* Tarjetas de indicadores */
+QLabel#indicadorTitulo {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+QLabel#indicadorValor {
+    font-size: 32pt;
+    font-weight: bold;
+    color: #27ae60;
+    margin-bottom: 8px;
+}
+QWidget#indicadorBox {
+    background: #fff;
+    border-radius: 16px;
+    border: 2px solid #e0e0e0;
+    padding: 24px;
+    margin: 12px;
+    min-width: 220px;
+    min-height: 120px;
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
 } 

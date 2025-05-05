@@ -22,10 +22,10 @@ class ReporteFacturas:
                 with conn.cursor() as cur:
                     cur.execute("""
                         SELECT v.*, c.nombre_empresa, c.nit, c.telefono, c.email, c.direccion,
-                               p.monto, p.fecha_pago, p.metodo_pago
+                               pf.monto, pf.fecha_pago, pf.metodo_pago
                         FROM ventas v
                         JOIN clientes c ON v.cliente_id = c.id
-                        LEFT JOIN pagos p ON v.id = p.venta_id
+                        LEFT JOIN pagos_facturas pf ON v.id = pf.factura_id
                         WHERE v.id = %s
                     """, (venta_id,))
                     venta = cur.fetchone()
@@ -119,10 +119,10 @@ class ReporteFacturas:
                 with conn.cursor() as cur:
                     cur.execute("""
                         SELECT c.*, p.nombre, p.apellido, p.documento_identidad, p.telefono, p.direccion,
-                               p.monto, p.fecha_pago, p.metodo_pago
+                               pc.monto, pc.fecha_pago, pc.metodo_pago
                         FROM compras c
                         JOIN proveedores p ON c.proveedor_id = p.id
-                        LEFT JOIN pagos p ON c.id = p.compra_id
+                        LEFT JOIN pagos_compras pc ON c.id = pc.compra_id
                         WHERE c.id = %s
                     """, (compra_id,))
                     compra = cur.fetchone()
