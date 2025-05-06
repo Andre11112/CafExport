@@ -23,8 +23,14 @@ REM Actualizar pip
 echo Actualizando pip...
 python -m pip install --upgrade pip
 
-REM Instalar dependencias
-echo Instalando dependencias...
+REM Instalar PyQt6 y sus dependencias primero
+echo Instalando PyQt6 y sus dependencias...
+pip install PyQt6
+pip install PyQt6-Qt6
+pip install PyQt6-sip
+
+REM Instalar el resto de dependencias
+echo Instalando otras dependencias...
 pip install -r requirements.txt
 
 echo.
@@ -34,4 +40,4 @@ echo.
 echo Para activar el entorno virtual en el futuro, ejecuta: venv\Scripts\activate.bat
 echo.
 
-pause 
+pause
