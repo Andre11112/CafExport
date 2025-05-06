@@ -52,6 +52,8 @@ class LoginWindow(QMainWindow):
         email = self.username.text()
         password = self.password.text()
         
+        print(f"Intentando iniciar sesión con email: {email}")
+        
         try:
             with DatabaseConnection().connect() as conn:
                 with conn.cursor() as cur:
@@ -62,16 +64,25 @@ class LoginWindow(QMainWindow):
                     """, (email,))
                     
                     user = cur.fetchone()
+                    print(f"Usuario encontrado: {user is not None}")
                     
-                    if user and bcrypt.checkpw(
-                        password.encode('utf-8'), 
-                        user['password_hash'].encode('utf-8')
-                    ):
-                        self.main_window = MainWindow(user['id'])
-                        self.main_window.show()
-                        self.close()
+                    if user:
+                        print(f"Hash almacenado: {user['password_hash']}")
+                        password_check = bcrypt.checkpw(
+                            password.encode('utf-8'), 
+                            user['password_hash'].encode('utf-8')
+                        )
+                        print(f"Verificación de contraseña: {password_check}")
+                        
+                        if password_check:
+                            self.main_window = MainWindow(user['id'])
+                            self.main_window.show()
+                            self.close()
+                        else:
+                            self.error_label.setText("Email o contraseña incorrectos")
                     else:
                         self.error_label.setText("Email o contraseña incorrectos")
                         
         except Exception as e:
+            print(f"Error en el inicio de sesión: {str(e)}")
             self.error_label.setText(f"Error al iniciar sesión: {str(e)}") 

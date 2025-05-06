@@ -1,6 +1,6 @@
 from datetime import datetime, date, timedelta
 from typing import Optional
-from backend.database import DatabaseConnection
+from .database import DatabaseConnection
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import os

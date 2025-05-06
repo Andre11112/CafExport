@@ -1,5 +1,6 @@
 import sys
 import os
+import subprocess
 
 # Agregar el directorio raíz al path de Python
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -20,6 +21,9 @@ def main():
     
     window = LoginWindow()
     window.show()
+    
+    # Inicia el servidor FastAPI en segundo plano
+    subprocess.Popen(["uvicorn", "server:app", "--port", "8000"])
     
     sys.exit(app.exec())
 

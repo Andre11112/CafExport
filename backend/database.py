@@ -1,5 +1,6 @@
 import psycopg2
 from psycopg2.extras import RealDictCursor
+import os
 from configparser import ConfigParser
 
 class DatabaseConnection:
@@ -9,7 +10,8 @@ class DatabaseConnection:
         
     def _read_config(self):
         config = ConfigParser()
-        config.read('config.ini')
+        config_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'config.ini')
+        config.read(config_path)
         return config['postgresql']
         
     def connect(self):

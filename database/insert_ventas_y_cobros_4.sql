@@ -1,0 +1,54 @@
+-- Cuarta parte de inserts de ventas y cobros
+-- Ventas (25 registros)
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (76, 16, 10, 456.78, 16650.00, 7605387.00, '2023-06-15 00:00:00', 'pagado');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (77, 17, 3, 789.01, 16525.00, 13033395.25, '2024-02-20 00:00:00', 'parcial');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (78, 18, 9, 345.67, 16600.00, 5738122.00, '2022-10-30 00:00:00', 'pendiente');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (79, 19, 4, 890.12, 16575.00, 14759241.00, '2023-12-25 00:00:00', 'pagado');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (80, 20, 2, 234.56, 16625.00, 3899500.00, '2024-05-10 00:00:00', 'parcial');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (81, 1, 7, 567.89, 16550.00, 9408569.50, '2022-08-15 00:00:00', 'pendiente');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (82, 2, 11, 678.90, 16600.00, 11269740.00, '2023-11-20 00:00:00', 'pagado');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (83, 3, 5, 456.78, 16575.00, 7573666.50, '2024-03-25 00:00:00', 'parcial');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (84, 4, 6, 789.01, 16625.00, 13112291.25, '2022-12-30 00:00:00', 'pendiente');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (85, 5, 3, 345.67, 16600.00, 5738122.00, '2023-07-05 00:00:00', 'pagado');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (86, 6, 9, 890.12, 16550.00, 14736486.00, '2024-01-10 00:00:00', 'parcial');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (87, 7, 4, 234.56, 16625.00, 3899500.00, '2022-09-15 00:00:00', 'pendiente');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (88, 8, 2, 567.89, 16600.00, 9426974.00, '2023-12-20 00:00:00', 'pagado');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (89, 9, 7, 678.90, 16575.00, 11255767.50, '2024-04-25 00:00:00', 'parcial');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (90, 10, 11, 456.78, 16625.00, 7593967.50, '2022-11-30 00:00:00', 'pendiente');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (91, 11, 5, 789.01, 16600.00, 13097566.00, '2023-08-05 00:00:00', 'pagado');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (92, 12, 6, 345.67, 16575.00, 5731352.25, '2024-02-10 00:00:00', 'parcial');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (93, 13, 3, 890.12, 16625.00, 14795725.00, '2022-10-15 00:00:00', 'pendiente');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (94, 14, 9, 234.56, 16600.00, 3893696.00, '2023-12-20 00:00:00', 'pagado');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (95, 15, 4, 567.89, 16575.00, 9413775.75, '2024-05-25 00:00:00', 'parcial');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (96, 16, 2, 678.90, 16625.00, 11287162.50, '2022-12-30 00:00:00', 'pendiente');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (97, 17, 7, 456.78, 16600.00, 7582548.00, '2023-09-05 00:00:00', 'pagado');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (98, 18, 11, 789.01, 16575.00, 13077840.75, '2024-03-10 00:00:00', 'parcial');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (99, 19, 5, 345.67, 16625.00, 5746793.75, '2022-11-15 00:00:00', 'pendiente');
+INSERT INTO ventas (id, cliente_id, usuario_id, cantidad_kg, precio_kg, total, fecha_venta, estado_cobro) VALUES (100, 20, 6, 890.12, 16600.00, 14775992.00, '2023-12-20 00:00:00', 'pagado');
+
+-- Cobros (25 registros)
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (76, 76, 7605387.00, '2023-06-15 00:00:00', 'transferencia', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (77, 77, 6516697.63, '2024-02-20 00:00:00', 'efectivo', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (78, 79, 14759241.00, '2023-12-25 00:00:00', 'transferencia', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (79, 80, 1949750.00, '2024-05-10 00:00:00', 'efectivo', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (80, 82, 11269740.00, '2023-11-20 00:00:00', 'transferencia', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (81, 83, 3786833.25, '2024-03-25 00:00:00', 'efectivo', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (82, 85, 5738122.00, '2023-07-05 00:00:00', 'transferencia', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (83, 86, 7368243.00, '2024-01-10 00:00:00', 'efectivo', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (84, 88, 9426974.00, '2023-12-20 00:00:00', 'transferencia', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (85, 89, 5627883.75, '2024-04-25 00:00:00', 'efectivo', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (86, 91, 13097566.00, '2023-08-05 00:00:00', 'transferencia', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (87, 92, 2865676.13, '2024-02-10 00:00:00', 'efectivo', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (88, 94, 3893696.00, '2023-12-20 00:00:00', 'transferencia', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (89, 95, 4706887.88, '2024-05-25 00:00:00', 'efectivo', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (90, 97, 7582548.00, '2023-09-05 00:00:00', 'transferencia', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (91, 98, 6538920.38, '2024-03-10 00:00:00', 'efectivo', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (92, 100, 14775992.00, '2023-12-20 00:00:00', 'transferencia', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (93, 77, 6516697.63, '2024-03-20 00:00:00', 'efectivo', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (94, 80, 1949750.00, '2024-06-10 00:00:00', 'transferencia', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (95, 83, 3786833.25, '2024-04-25 00:00:00', 'efectivo', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (96, 86, 7368243.00, '2024-02-10 00:00:00', 'transferencia', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (97, 89, 5627883.75, '2024-05-25 00:00:00', 'efectivo', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (98, 92, 2865676.13, '2024-03-10 00:00:00', 'transferencia', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (99, 95, 4706887.88, '2024-06-25 00:00:00', 'efectivo', 'completado');
+INSERT INTO cobros (id, venta_id, monto, fecha_cobro, metodo_pago, estado) VALUES (100, 98, 6538920.38, '2024-04-10 00:00:00', 'transferencia', 'completado'); 

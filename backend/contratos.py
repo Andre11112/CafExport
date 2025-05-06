@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import List, Optional
 from pydantic import BaseModel, Field
-from database import get_db_connection
+from .database import DatabaseConnection
 
 class Contrato(BaseModel):
     id: Optional[int] = None
@@ -29,7 +29,8 @@ class DetalleContrato(BaseModel):
     subtotal: float
 
 def crear_tabla_contratos():
-    conn = get_db_connection()
+    db = DatabaseConnection()
+    conn = db.connect()
     cursor = conn.cursor()
     
     # Tabla de contratos
@@ -71,7 +72,8 @@ def crear_tabla_contratos():
     conn.close()
 
 def crear_contrato(contrato: Contrato, detalles: List[DetalleContrato]) -> int:
-    conn = get_db_connection()
+    db = DatabaseConnection()
+    conn = db.connect()
     cursor = conn.cursor()
     
     try:
@@ -113,7 +115,8 @@ def crear_contrato(contrato: Contrato, detalles: List[DetalleContrato]) -> int:
         conn.close()
 
 def obtener_contrato(contrato_id: int) -> tuple[Contrato, List[DetalleContrato]]:
-    conn = get_db_connection()
+    db = DatabaseConnection()
+    conn = db.connect()
     cursor = conn.cursor()
     
     # Obtener contrato
@@ -161,7 +164,8 @@ def obtener_contrato(contrato_id: int) -> tuple[Contrato, List[DetalleContrato]]
     return contrato, detalles
 
 def listar_contratos(estado: Optional[str] = None) -> List[Contrato]:
-    conn = get_db_connection()
+    db = DatabaseConnection()
+    conn = db.connect()
     cursor = conn.cursor()
     
     if estado:
@@ -196,7 +200,8 @@ def listar_contratos(estado: Optional[str] = None) -> List[Contrato]:
     return contratos
 
 def actualizar_estado_contrato(contrato_id: int, nuevo_estado: str):
-    conn = get_db_connection()
+    db = DatabaseConnection()
+    conn = db.connect()
     cursor = conn.cursor()
     
     cursor.execute('''
