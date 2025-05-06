@@ -7,6 +7,7 @@ from matplotlib.figure import Figure
 from database.conexion import get_connection
 from datetime import datetime
 import os
+import requests
 
 class CierreContableWidget(QWidget):
     def __init__(self, parent=None):
@@ -232,45 +233,59 @@ class CierreContableWidget(QWidget):
             QMessageBox.warning(self, "Aviso", "Seleccione un mes y año válido")
             return
 
-        conn = get_connection()
-        if not conn:
+        fila = self.tabla_todos.currentRow()
+        if fila < 0:
+            QMessageBox.warning(self, "Aviso", "Seleccione un cierre de la tabla")
             return
 
-        try:
-            anio = int(self.combo_anio.currentText())
-            mes = int(self.combo_mes.currentText())
-            
-            cur = conn.cursor()
-            cur.execute("""
-                SELECT pdf_path FROM cierres_contables
-                WHERE anio = %s AND mes = %s
-            """, (anio, mes))
-            
-            resultado = cur.fetchone()
-            cur.close()
-            conn.close()
+        cierre_id_item = self.tabla_todos.item(fila, 0)
+        if not cierre_id_item:
+            QMessageBox.warning(self, "Aviso", "No se pudo obtener el ID del cierre")
+            return
 
-            if resultado and resultado[0]:
-                pdf_path = resultado[0]
-                if os.path.exists(pdf_path):
-                    file_path, _ = QFileDialog.getSaveFileName(
-                        self, 
-                        "Guardar PDF", 
-                        f"cierre_{anio}_{mes:02d}.pdf", 
-                        "PDF Files (*.pdf)"
-                    )
-                    
-                    if file_path:
-                        with open(pdf_path, 'rb') as source, open(file_path, 'wb') as dest:
-                            dest.write(source.read())
-                        QMessageBox.information(
-                            self, 
-                            "Éxito", 
-                            f"Cierre generado y PDF guardado en:\n{file_path}"
-                        )
-                else:
-                    QMessageBox.warning(self, "Aviso", "El archivo PDF no existe en el servidor")
+        cierre_id_str = cierre_id_item.text().strip()
+        print(f"[DEBUG] ID seleccionado (str): {cierre_id_str}")
+
+        try:
+            cierre_id = int(cierre_id_str)
+            if cierre_id <= 0:
+                raise ValueError("ID debe ser un número positivo")
+        except ValueError as e:
+            print(f"[ERROR] ID de cierre inválido: {cierre_id_str} - {str(e)}")
+            QMessageBox.warning(self, "Aviso", f"ID de cierre inválido: {cierre_id_str}")
+            return
+
+        print(f"[DEBUG] ID seleccionado (int): {cierre_id}")
+        print(f"[DEBUG] URL a solicitar: http://localhost:8000/cierres/pdf/por-id/{cierre_id}")
+
+        try:
+            response = requests.get(f"http://localhost:8000/cierres/pdf/por-id/{cierre_id}")
+            print(f"[DEBUG] Código de respuesta: {response.status_code}")
+            
+            if response.status_code == 200:
+                file_path, _ = QFileDialog.getSaveFileName(
+                    self,
+                    "Guardar PDF",
+                    f"cierre_{cierre_id}.pdf",
+                    "PDF Files (*.pdf)"
+                )
+                if file_path:
+                    with open(file_path, 'wb') as f:
+                        f.write(response.content)
+                    QMessageBox.information(self, "Éxito", f"PDF generado y guardado en:\n{file_path}")
             else:
-                QMessageBox.warning(self, "Aviso", "No se encontró el PDF para este cierre")
+                error_msg = f"No se pudo generar el PDF. Código: {response.status_code}"
+                try:
+                    error_detail = response.json().get('detail', '')
+                    if error_detail:
+                        error_msg += f"\nDetalle: {error_detail}"
+                except:
+                    pass
+                print(f"[ERROR] {error_msg}")
+                QMessageBox.warning(self, "Aviso", error_msg)
+        except requests.exceptions.RequestException as e:
+            print(f"[ERROR] Error de conexión: {str(e)}")
+            QMessageBox.critical(self, "Error", f"Error de conexión al servidor: {str(e)}")
         except Exception as e:
+            print(f"[ERROR] Error inesperado: {str(e)}")
             QMessageBox.critical(self, "Error", f"Error al generar PDF: {str(e)}") 

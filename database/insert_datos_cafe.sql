@@ -1,4 +1,15 @@
 
+INSERT INTO usuarios (id, nombre, apellido, email, password_hash, tipo_usuario, activo, fecha_creacion) VALUES (2, 'Camila', 'Díaz', 'camila.diaz2@cafexport.com', '$2b$12$fakehash2', 'comprador', true, NOW());
+INSERT INTO usuarios (id, nombre, apellido, email, password_hash, tipo_usuario, activo, fecha_creacion) VALUES (3, 'Pedro', 'Pérez', 'pedro.perez3@cafexport.com', '$2b$12$fakehash3', 'vendedor', true, NOW());
+INSERT INTO usuarios (id, nombre, apellido, email, password_hash, tipo_usuario, activo, fecha_creacion) VALUES (4, 'Ana', 'Gómez', 'ana.gomez4@cafexport.com', '$2b$12$fakehash4', 'vendedor', true, NOW());
+INSERT INTO usuarios (id, nombre, apellido, email, password_hash, tipo_usuario, activo, fecha_creacion) VALUES (5, 'Andrés', 'Torres', 'andres.torres5@cafexport.com', '$2b$12$fakehash5', 'comprador', true, NOW());
+INSERT INTO usuarios (id, nombre, apellido, email, password_hash, tipo_usuario, activo, fecha_creacion) VALUES (6, 'Ana', 'Pérez', 'ana.perez6@cafexport.com', '$2b$12$fakehash6', 'vendedor', true, NOW());
+INSERT INTO usuarios (id, nombre, apellido, email, password_hash, tipo_usuario, activo, fecha_creacion) VALUES (7, 'Luis', 'Díaz', 'luis.diaz7@cafexport.com', '$2b$12$fakehash7', 'comprador', true, NOW());
+INSERT INTO usuarios (id, nombre, apellido, email, password_hash, tipo_usuario, activo, fecha_creacion) VALUES (8, 'Carlos', 'Sánchez', 'carlos.sanchez8@cafexport.com', '$2b$12$fakehash8', 'comprador', true, NOW());
+INSERT INTO usuarios (id, nombre, apellido, email, password_hash, tipo_usuario, activo, fecha_creacion) VALUES (9, 'Carlos', 'Hernández', 'carlos.hernandez9@cafexport.com', '$2b$12$fakehash9', 'comprador', true, NOW());
+INSERT INTO usuarios (id, nombre, apellido, email, password_hash, tipo_usuario, activo, fecha_creacion) VALUES (10, 'Camila', 'López', 'camila.lopez10@cafexport.com', '$2b$12$fakehash10', 'vendedor', true, NOW());
+INSERT INTO usuarios (id, nombre, apellido, email, password_hash, tipo_usuario, activo, fecha_creacion) VALUES (11, 'Juan', 'Torres', 'juan.torres11@cafexport.com', '$2b$12$fakehash11', 'vendedor', true, NOW());
+
 INSERT INTO proveedores (id, nombre, apellido, documento_identidad, telefono, direccion, creado_por, fecha_registro) VALUES (1, 'Luis', 'Sánchez', 'CC00001', '3004930120', 'Finca #22', 11, '2024-12-19 00:00:00');
 INSERT INTO proveedores (id, nombre, apellido, documento_identidad, telefono, direccion, creado_por, fecha_registro) VALUES (2, 'Laura', 'Ramírez', 'CC00002', '3005764101', 'Finca #29', 9, '2024-12-06 00:00:00');
 INSERT INTO proveedores (id, nombre, apellido, documento_identidad, telefono, direccion, creado_por, fecha_registro) VALUES (3, 'Andrés', 'Pérez', 'CC00003', '3008693157', 'Finca #28', 7, '2023-08-03 00:00:00');
@@ -49,6 +60,7 @@ INSERT INTO proveedores (id, nombre, apellido, documento_identidad, telefono, di
 INSERT INTO proveedores (id, nombre, apellido, documento_identidad, telefono, direccion, creado_por, fecha_registro) VALUES (48, 'Andrés', 'Ramírez', 'CC00048', '3008576713', 'Finca #23', 5, '2023-11-07 00:00:00');
 INSERT INTO proveedores (id, nombre, apellido, documento_identidad, telefono, direccion, creado_por, fecha_registro) VALUES (49, 'Lucía', 'Sánchez', 'CC00049', '3006793170', 'Finca #2', 11, '2024-06-29 00:00:00');
 INSERT INTO proveedores (id, nombre, apellido, documento_identidad, telefono, direccion, creado_por, fecha_registro) VALUES (50, 'María', 'Díaz', 'CC00050', '3002710211', 'Finca #25', 6, '2022-03-23 00:00:00');
+
 INSERT INTO clientes (id, nombre_empresa, nit, tipo_cliente, telefono, email, direccion, creado_por, fecha_registro) VALUES (1, 'Empresa Cafe1', 'NIT0001', 'cafeteria', '3164578304', 'cliente1@cafe.com', 'Calle 54 # 30-42', 6, '2023-08-22 00:00:00');
 INSERT INTO clientes (id, nombre_empresa, nit, tipo_cliente, telefono, email, direccion, creado_por, fecha_registro) VALUES (2, 'Empresa Cafe2', 'NIT0002', 'exportador', '3158127720', 'cliente2@cafe.com', 'Calle 84 # 40-21', 11, '2023-11-23 00:00:00');
 INSERT INTO clientes (id, nombre_empresa, nit, tipo_cliente, telefono, email, direccion, creado_por, fecha_registro) VALUES (3, 'Empresa Cafe3', 'NIT0003', 'exportador', '3183033197', 'cliente3@cafe.com', 'Calle 55 # 8-2', 4, '2022-03-24 00:00:00');
@@ -69,6 +81,7 @@ INSERT INTO clientes (id, nombre_empresa, nit, tipo_cliente, telefono, email, di
 INSERT INTO clientes (id, nombre_empresa, nit, tipo_cliente, telefono, email, direccion, creado_por, fecha_registro) VALUES (18, 'Empresa Cafe18', 'NIT0018', 'cafeteria', '3139039047', 'cliente18@cafe.com', 'Calle 2 # 42-18', 3, '2023-08-01 00:00:00');
 INSERT INTO clientes (id, nombre_empresa, nit, tipo_cliente, telefono, email, direccion, creado_por, fecha_registro) VALUES (19, 'Empresa Cafe19', 'NIT0019', 'exportador', '3160077822', 'cliente19@cafe.com', 'Calle 75 # 38-28', 5, '2022-06-16 00:00:00');
 INSERT INTO clientes (id, nombre_empresa, nit, tipo_cliente, telefono, email, direccion, creado_por, fecha_registro) VALUES (20, 'Empresa Cafe20', 'NIT0020', 'cafeteria', '3140986483', 'cliente20@cafe.com', 'Calle 21 # 49-19', 6, '2023-02-20 00:00:00');
+
 INSERT INTO precios_cafe (id, precio_kg, precio_carga, fecha_actualizacion, fuente, registrado_por) VALUES (1, 10942.57, 1367821.25, '2024-10-05 00:00:00', 'Bolsa NY', 10);
 INSERT INTO precios_cafe (id, precio_kg, precio_carga, fecha_actualizacion, fuente, registrado_por) VALUES (2, 8237.62, 1029702.5, '2022-05-06 00:00:00', 'Bolsa NY', 5);
 INSERT INTO precios_cafe (id, precio_kg, precio_carga, fecha_actualizacion, fuente, registrado_por) VALUES (3, 10073.95, 1259243.75, '2023-07-16 00:00:00', 'Interna', 9);
@@ -89,6 +102,7 @@ INSERT INTO precios_cafe (id, precio_kg, precio_carga, fecha_actualizacion, fuen
 INSERT INTO precios_cafe (id, precio_kg, precio_carga, fecha_actualizacion, fuente, registrado_por) VALUES (18, 8768.47, 1096058.75, '2022-02-03 00:00:00', 'Acuerdo Local', 6);
 INSERT INTO precios_cafe (id, precio_kg, precio_carga, fecha_actualizacion, fuente, registrado_por) VALUES (19, 10601.73, 1325216.25, '2024-08-11 00:00:00', 'Interna', 6);
 INSERT INTO precios_cafe (id, precio_kg, precio_carga, fecha_actualizacion, fuente, registrado_por) VALUES (20, 7573.56, 946695.0, '2023-12-03 00:00:00', 'Acuerdo Local', 9);
+
 INSERT INTO compras (id, proveedor_id, usuario_id, cantidad_kg, precio_kg, total, fecha_compra, estado_pago) VALUES (1, 1, 6, 384.33, 11326.96, 4353290.54, '2024-11-11 00:00:00', 'parcial');
 INSERT INTO compras (id, proveedor_id, usuario_id, cantidad_kg, precio_kg, total, fecha_compra, estado_pago) VALUES (2, 17, 5, 481.33, 11745.51, 5653466.33, '2023-04-17 00:00:00', 'pagado');
 INSERT INTO compras (id, proveedor_id, usuario_id, cantidad_kg, precio_kg, total, fecha_compra, estado_pago) VALUES (3, 30, 3, 156.87, 9266.53, 1453640.56, '2022-07-22 00:00:00', 'pagado');
@@ -139,4 +153,3 @@ INSERT INTO compras (id, proveedor_id, usuario_id, cantidad_kg, precio_kg, total
 INSERT INTO compras (id, proveedor_id, usuario_id, cantidad_kg, precio_kg, total, fecha_compra, estado_pago) VALUES (48, 26, 5, 276.55, 10025.63, 2772587.98, '2023-03-08 00:00:00', 'parcial');
 INSERT INTO compras (id, proveedor_id, usuario_id, cantidad_kg, precio_kg, total, fecha_compra, estado_pago) VALUES (49, 32, 9, 264.57, 7108.2, 1880616.47, '2023-12-11 00:00:00', 'pendiente');
 INSERT INTO compras (id, proveedor_id, usuario_id, cantidad_kg, precio_kg, total, fecha_compra, estado_pago) VALUES (50, 3, 11, 143.24, 11904.24, 1705163.34, '2022-04-06 00:00:00', 'pendiente');
-
