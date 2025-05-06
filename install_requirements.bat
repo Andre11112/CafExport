@@ -6,3 +6,5 @@ pip install -r requirements.txt
 
 echo Instalación de requerimientos completada.
 pause 
+
+###.\install_requirements.bat
