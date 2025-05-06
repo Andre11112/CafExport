@@ -4,6 +4,7 @@ from PyQt6.QtCore import Qt, QTimer
 from PyQt6.QtGui import QFont, QColor
 import datetime
 from .graficos import GraficosWidget
+import requests
 
 class KPICard(QFrame):
     def __init__(self, title, value, unit="", parent=None):
@@ -75,8 +76,14 @@ class Dashboard(QWidget):
         # Actualizar KPIs iniciales
         self.update_kpis()
     def update_kpis(self):
-        # Aquí se implementará la lógica para obtener datos reales
-        # Por ahora usamos datos de ejemplo
-        self.utilidad_card.update_value("$25,000")
-        self.ventas_card.update_value("$150,000")
-        self.margen_card.update_value("15", "%") 
+        try:
+            response = requests.get("http://localhost:8000/dashboard/kpis")
+            if response.status_code == 200:
+                data = response.json()
+                self.utilidad_card.update_value(f"${data['utilidad_neta']:,.2f}")
+                self.ventas_card.update_value(f"${data['volumen_ventas']:,.2f}")
+                self.margen_card.update_value(f"{data['margen_lote']}", "%")
+            else:
+                print(f"[ERROR] No se pudo obtener KPIs. Código: {response.status_code}")
+        except Exception as e:
+            print(f"[ERROR] Error al obtener KPIs: {e}") 
